@@ -1,4 +1,4 @@
-package com.jsn_man.ac;
+package com.pauloverde.arrowcam;
 
 import java.lang.reflect.Field;
 import net.minecraft.client.Minecraft;

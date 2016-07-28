@@ -1,4 +1,4 @@
-package com.jsn_man.ac;
+package com.pauloverde.arrowcam;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
