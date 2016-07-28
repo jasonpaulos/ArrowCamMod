@@ -62,25 +62,24 @@ public class EntityCamera extends Entity{
 		}
 		
 		if(target != null){
-			motionX = target.motionX;
-			motionY = target.motionY;
-			motionZ = target.motionZ;
 			
-			rotationYaw = (360.0F - target.rotationYaw) % 360.0F;
-	        rotationPitch = (360.0F - target.rotationPitch) % 360.0F;
-	        prevRotationYaw = (360.0F - target.prevRotationYaw) % 360.0F;
-	        prevRotationPitch = (360.0F - target.prevRotationPitch) % 360.0F;
-			
-			boolean inGround = ArrowCamMod.instance.isArrowInGround(target);
-			
-			if(!target.isEntityAlive() || inGround){
+			if(!target.isEntityAlive() || ArrowCamMod.instance.isArrowInGround(target)){
 				motionX = motionY = motionZ = 0;
+				prevRotationYaw = rotationYaw;
+				prevRotationPitch = rotationPitch;
 				
 				if(--deathDelay <= 0){
 					ArrowCamMod.instance.stopArrowCam();
 				}
+			}else{
+				motionX = target.motionX;
+				motionY = target.motionY;
+				motionZ = target.motionZ;
 				
-				return;
+				rotationYaw = (360.0F - target.rotationYaw) % 360.0F;
+		        rotationPitch = (360.0F - target.rotationPitch) % 360.0F;
+		        prevRotationYaw = (360.0F - target.prevRotationYaw) % 360.0F;
+		        prevRotationPitch = (360.0F - target.prevRotationPitch) % 360.0F;
 			}
 		}
 	}
