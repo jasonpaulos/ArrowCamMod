@@ -46,7 +46,7 @@ public class ArrowListener{
 				!arrow.isDead && !ArrowCamMod.instance.isArrowInGround(arrow) &&
 				arrow.shootingEntity.equals(player) &&
 				player.isSneaking() &&
-				arrow.getDistanceSqToEntity(player) <= 16.0
+				arrow.getDistanceSqToEntity(player) <= 25.0
 			){
 				ArrowCamMod.instance.startArrowCam(arrow);
 			}
