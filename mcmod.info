@@ -4,7 +4,7 @@
   "name": "Arrow Cam Mod",
   "description": "Allows your point of view to follow arrows as you fire them.",
   "version": "2.2.0",
-  "mcversion": "[1.10.2,1.11)",
+  "mcversion": "[1.8.9,1.9)",
   "url": "http://minecraft.curseforge.com/mc-mods/arrow-cam",
   "updateUrl": "",
   "authorList": [

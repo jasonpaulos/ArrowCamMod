@@ -4,14 +4,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.fml.relauncher.Side;
@@ -22,7 +19,6 @@ public class EntityCamera extends Entity{
 	public EntityCamera(World world){
 		super(world);
 		setSize(0.0F, 0.0F);
-		setEntityInvulnerable(true);
 		deathDelay = 20;
 	}
 	
@@ -43,7 +39,7 @@ public class EntityCamera extends Entity{
         prevRotationYaw = (360.0F - target.prevRotationYaw) % 360.0F;
         prevRotationPitch = (360.0F - target.prevRotationPitch) % 360.0F;
 		
-		this.startRiding(target, true);
+		this.mountEntity(target);
 	}
 	
 	@Override
@@ -99,8 +95,8 @@ public class EntityCamera extends Entity{
 	}
 	
 	@Override
-	public Entity changeDimension(int dimensionIn){
-		return null;
+	public void travelToDimension(int dimensionIn){
+		
 	}
 	
 	@Override
@@ -117,11 +113,6 @@ public class EntityCamera extends Entity{
 	public boolean canBePushed(){
 		return false;
 	}
-	
-	@Override
-    public boolean canBeAttackedWithItem(){
-        return false;
-    }
 	
 	@Override
     public float getEyeHeight(){

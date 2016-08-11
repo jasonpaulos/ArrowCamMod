@@ -81,7 +81,6 @@ public class ArrowCamMod{
 				mc.gameSettings.fovSetting *= 1.1F;
 				mc.gameSettings.thirdPersonView = thirdPersonView != 0 ? thirdPersonView : 1;
 				mc.setRenderViewEntity(camera);
-				mc.getRenderManager().renderViewEntity = camera;
 			}else{
 				camera = null;
 			}
@@ -99,7 +98,6 @@ public class ArrowCamMod{
 			mc.gameSettings.fovSetting = fovSetting;
 			mc.gameSettings.thirdPersonView = thirdPersonView;
 			mc.setRenderViewEntity(mc.thePlayer);
-			mc.getRenderManager().renderViewEntity = mc.thePlayer;
 			
 			if(!camera.isDead){
 				camera.setDead();
