@@ -1,10 +1,10 @@
 package com.pauloverde.arrowcam;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ArrowListener{
@@ -39,7 +39,7 @@ public class ArrowListener{
 		}
 		
 		public void run(){
-			EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+			EntityPlayer player = FMLClientHandler.instance().getClient().thePlayer;
 			
 			if(
 				arrow.shootingEntity != null &&
