@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.FMLLog;
@@ -30,7 +31,7 @@ public class ArrowCamMod{
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event){
-		EntityRegistry.registerModEntity(EntityCamera.class, "ArrowCamera", 1, this, 256, 1, true);
+		EntityRegistry.registerModEntity(new ResourceLocation("arrowcam", "camera"), EntityCamera.class, "ArrowCamera", 1, this, 256, 1, true);
 		
 		try {
 			EntityArrow$inGround = EntityArrow.class.getDeclaredField("inGround");
